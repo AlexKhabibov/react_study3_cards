@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { stylesCard } from "../styles/style";
+import { useEffect } from "react";
 
 function FavoriteButton() {
     const [isFavorite, setIsFavorite] = useState(false);
+    useEffect(() => {
+        console.log('вы нажали на кнопку like/dislike'); // проверка монтирования
+    }, [isFavorite])
 
     return (
         <>
@@ -11,4 +15,4 @@ function FavoriteButton() {
     );
 }
 
-export default FavoriteButton;
+export default memo(FavoriteButton);
